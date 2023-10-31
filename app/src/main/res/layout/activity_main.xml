@@ -26,5 +26,56 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/coste_servicio"
         />
+    <RadioGroup
+        android:id="@+id/grupoBotones"
+        android:checkedButton="@id/PrimerBoton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/preguntaServicio"
+        android:orientation="vertical">
+        <!--Añadiendo lo botones dentro del grupo radio -->
+        <RadioButton
+            android:id="@+id/PrimerBoton"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Amazing(20%)"/>
+        <RadioButton
+            android:id="@+id/SegundoBoton"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Good(18%)"/>
+        <RadioButton
+            android:id="@+id/TercerBoton"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Okay(15%)"/>
+
+    </RadioGroup>
+    <Switch
+        android:id="@+id/redondear"
+        android:text="Redondear propina?"
+        app:layout_constraintTop_toBottomOf="@id/grupoBotones"
+        app:layout_constraintStart_toStartOf="@id/grupoBotones"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:checked="true"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/boton1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/redondear"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Calcular"/>
+    <TextView
+        android:id="@+id/propina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Propina resultante"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/boton1"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
