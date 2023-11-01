@@ -2,6 +2,7 @@ package com.example.tiptime
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.tiptime.databinding.ActivityMainBinding
 import java.text.NumberFormat
 import java.text.NumberFormat.*
@@ -17,7 +18,11 @@ class MainActivity : AppCompatActivity() {
     }
     fun calculateTip(){
 
-        val costeServicio = binding.costeServicio.text.toString().toDouble()
+        val costeServicio = binding.costeServicio.text.toString().toDoubleOrNull()
+        if(costeServicio == null){
+            Toast.makeText(this,"Introduce un importe correcto",Toast.LENGTH_SHORT).show()
+            return
+        }
         val porcentaje = when(binding.grupoBotones.checkedRadioButtonId){
             R.id.PrimerBoton -> 0.20
             R.id.SegundoBoton -> 0.18
