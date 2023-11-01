@@ -11,71 +11,74 @@
         android:id="@+id/coste_servicio"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:hint="@string/coste_del_servicio"
         android:inputType="numberDecimal"
-        android:hint="Coste del Servicio"
-        android:text=""
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/preguntaServicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Como ha sido el servicio?"
+        android:text="@string/como_ha_sido_el_servicio"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/coste_servicio"
-        />
+        app:layout_constraintTop_toBottomOf="@id/coste_servicio" />
+
     <RadioGroup
         android:id="@+id/grupoBotones"
-        android:checkedButton="@id/PrimerBoton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:checkedButton="@id/PrimerBoton"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/preguntaServicio"
-        android:orientation="vertical">
+        app:layout_constraintTop_toBottomOf="@id/preguntaServicio">
         <!--Añadiendo lo botones dentro del grupo radio -->
         <RadioButton
             android:id="@+id/PrimerBoton"
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="Amazing(20%)"/>
+            android:layout_height="wrap_content"
+            android:text="@string/amazing_20" />
+
         <RadioButton
             android:id="@+id/SegundoBoton"
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="Good(18%)"/>
+            android:layout_height="wrap_content"
+            android:text="@string/good_18" />
+
         <RadioButton
             android:id="@+id/TercerBoton"
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="Okay(15%)"/>
+            android:layout_height="wrap_content"
+            android:text="@string/okay_15" />
 
     </RadioGroup>
+
     <Switch
         android:id="@+id/redondear"
-        android:text="Redondear propina?"
-        app:layout_constraintTop_toBottomOf="@id/grupoBotones"
-        app:layout_constraintStart_toStartOf="@id/grupoBotones"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:checked="true"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/redondear_propina"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/grupoBotones"
+        app:layout_constraintTop_toBottomOf="@id/grupoBotones" />
+
     <Button
         android:id="@+id/boton1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/redondear"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/calcular"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Calcular"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/redondear" />
+
     <TextView
         android:id="@+id/propina"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Propina resultante"
+        android:text="@string/propina_resultante"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/boton1"/>
+        app:layout_constraintTop_toBottomOf="@id/boton1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
