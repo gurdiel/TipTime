@@ -8,7 +8,7 @@ import java.text.NumberFormat
 import java.text.NumberFormat.*
 
 class MainActivity : AppCompatActivity() {
-    lateinit  var binding: ActivityMainBinding
+    private lateinit  var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -16,11 +16,16 @@ class MainActivity : AppCompatActivity() {
 
         binding.boton1.setOnClickListener { calculateTip() }
     }
-    fun calculateTip(){
+    private fun displayTip(propina : Double){
+        binding.propina.text = getString(R.string.propina_resultante,
+            getCurrencyInstance().format(propina))
+    }
+    private fun calculateTip(){
 
         val costeServicio = binding.costeServicio.text.toString().toDoubleOrNull()
-        if(costeServicio == null){
+        if(costeServicio == null || costeServicio == 0.0){
             Toast.makeText(this,"Introduce un importe correcto",Toast.LENGTH_SHORT).show()
+            displayTip(0.0)
             return
         }
         val porcentaje = when(binding.grupoBotones.checkedRadioButtonId){
@@ -33,9 +38,7 @@ class MainActivity : AppCompatActivity() {
         if(binding.redondear.isChecked) {
             propina = kotlin.math.ceil(propina)
         }
-        binding.propina.text = getString(R.string.propina_resultante,
-            getCurrencyInstance().format(propina))
-
+        displayTip(propina)
 
     }
 }
