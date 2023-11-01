@@ -7,22 +7,55 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <EditText
+    <ImageView
+        android:id="@+id/icon_cost_of_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="@id/coste_servicio"
+        app:layout_constraintEnd_toStartOf="@id/coste_servicio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/coste_servicio"
+        app:srcCompat="@drawable/ic_store" />
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/coste_servicio"
         android:layout_width="160dp"
-        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:hint="@string/coste_del_servicio"
-        android:inputType="numberDecimal"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/icon_cost_of_service"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/coste_servicio_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/icon_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="@id/preguntaServicio"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/preguntaServicio"
+        app:srcCompat="@drawable/ic_service" />
 
     <TextView
         android:id="@+id/preguntaServicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/como_ha_sido_el_servicio"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/coste_servicio"
         app:layout_constraintTop_toBottomOf="@id/coste_servicio" />
+
+
 
     <RadioGroup
         android:id="@+id/grupoBotones"
@@ -30,7 +63,7 @@
         android:layout_height="wrap_content"
         android:checkedButton="@id/PrimerBoton"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/preguntaServicio"
         app:layout_constraintTop_toBottomOf="@id/preguntaServicio">
         <!--Añadiendo lo botones dentro del grupo radio -->
         <RadioButton
@@ -53,7 +86,17 @@
 
     </RadioGroup>
 
-    <Switch
+    <ImageView
+        android:id="@+id/icon_redondeo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="@id/redondear"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/redondear"
+        app:srcCompat="@drawable/ic_redondear" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/redondear"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -69,7 +112,8 @@
         android:layout_height="wrap_content"
         android:text="@string/calcular"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/redondear"
         app:layout_constraintTop_toBottomOf="@id/redondear" />
 
     <TextView
@@ -77,6 +121,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Propina resultante: $10"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/boton1" />
 

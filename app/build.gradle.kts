@@ -9,6 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.tiptime"
+        vectorDrawables.useSupportLibrary = true
         minSdk = 19
         targetSdk = 34
         versionCode = 1

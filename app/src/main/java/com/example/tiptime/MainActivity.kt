@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     }
     private fun calculateTip(){
 
-        val costeServicio = binding.costeServicio.text.toString().toDoubleOrNull()
+        val costeServicio = binding.costeServicioEditText.text.toString().toDoubleOrNull()
         if(costeServicio == null || costeServicio == 0.0){
             Toast.makeText(this,"Introduce un importe correcto",Toast.LENGTH_SHORT).show()
             displayTip(0.0)
