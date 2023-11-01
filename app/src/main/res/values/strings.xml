@@ -6,6 +6,6 @@
     <string name="good_18">Good(18%)</string>
     <string name="okay_15">Okay(15%)</string>
     <string name="calcular">Calcular</string>
-    <string name="propina_resultante">Propina resultante</string>
+    <string name="propina_resultante">Propina resultante: %s</string>
     <string name="redondear_propina">Redondear propina?</string>
 </resources>
