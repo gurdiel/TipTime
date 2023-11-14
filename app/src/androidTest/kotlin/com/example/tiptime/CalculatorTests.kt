@@ -3,6 +3,7 @@ package com.example.tiptime
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.swipeRight
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
@@ -28,5 +29,34 @@ class CalculatorTests {
             .perform(click())
         onView(withId(R.id.propina))
             .check(matches(withText(containsString("$10.00"))))
+    }
+
+    @Test
+    fun calculate_15_percent_tip(){
+        onView(withId(R.id.coste_servicio_edit_text))
+            .perform(typeText("50.00"))
+            .perform(ViewActions.closeSoftKeyboard())
+        onView(withId(R.id.TercerBoton))
+            .perform(click())
+        onView(withId(R.id.boton1))
+            .perform(click())
+        onView(withId(R.id.propina))
+            .check(matches(withText(containsString("$8.00"))))
+    }
+
+    @Test
+    fun calculate_sin_redondeo(){
+        onView(withId(R.id.coste_servicio_edit_text))
+            .perform(typeText("50.00"))
+            .perform(ViewActions.closeSoftKeyboard())
+        onView(withId(R.id.TercerBoton))
+            .perform(click())
+        onView(withId(R.id.redondear))
+            .perform(click())
+        onView(withId(R.id.boton1))
+            .perform(click())
+        onView(withId(R.id.propina))
+            .check(matches(withText(containsString("$7.50"))))
+
     }
 }
